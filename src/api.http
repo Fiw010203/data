@@ -1,0 +1,16 @@
+GET http://localhost:3000/api/users/1
+###
+GET http://localhost:3000/api/roles
+###
+POST http://localhost:3000/api/users
+
+###
+POST http://localhost:3000/api/users
+Content-Type: application/json
+
+{
+    "username": "asdsadsa",
+    "password": "asdasd",
+    "firstname": "asdasd",
+    "lastname": "Smxzcxzqweith"
+}
