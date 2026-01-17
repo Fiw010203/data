@@ -1,16 +1,30 @@
-GET http://localhost:3000/api/users/1
-###
-GET http://localhost:3000/api/roles
-###
-POST http://localhost:3000/api/users
-
-###
-POST http://localhost:3000/api/users
+### Create Room
+POST http://localhost:3000/api/room
 Content-Type: application/json
 
 {
-    "username": "asdsadsa",
-    "password": "asdasd",
-    "firstname": "asdasd",
-    "lastname": "Smxzcxzqweith"
+  "RoomNumber": "201",
+  "Type": "Suite",
+  "Price": 3000,
+  "Status": "Available"
 }
+
+### Get All Rooms
+GET http://localhost:3000/api/room
+
+### Get Room by ID
+GET http://localhost:3000/api/room/2
+
+### Update Room
+PUT http://localhost:3000/api/room/1
+Content-Type: application/json
+
+{
+  "RoomNumber": "201",
+  "Type": "Suite",
+  "Price": 3500,
+  "Status": "Occupied"
+}
+
+### Delete Room
+DELETE http://localhost:3000/api/room/1
