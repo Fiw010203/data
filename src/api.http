@@ -16,15 +16,15 @@ GET http://localhost:3000/api/room
 GET http://localhost:3000/api/room/2
 
 ### Update Room
-PUT http://localhost:3000/api/room/1
+PUT http://localhost:3000/api/room/2
 Content-Type: application/json
 
 {
-  "RoomNumber": "201",
+  "RoomNumber": "204",
   "Type": "Suite",
   "Price": 3500,
   "Status": "Occupied"
 }
 
 ### Delete Room
-DELETE http://localhost:3000/api/room/1
+DELETE http://localhost:3000/api/room/2

@@ -31,15 +31,38 @@ type Room = {
 /* -----------------------------
    GET Room by ID
 ----------------------------- */
+// ✅ GET ALL ROOMS
 roomRoutes.get("/", (c) => {
   const sql = "SELECT * FROM Room";
-  const stmt = db.prepare<[], any>(sql);
+  const stmt = db.prepare<[], Room>(sql);
   const rooms = stmt.all();
 
   return c.json({
     data: rooms,
   });
 });
+
+// ✅ GET ROOM BY ID
+roomRoutes.get("/:id", (c) => {
+  const { id } = c.req.param();
+
+  const sql = "SELECT * FROM Room WHERE RoomID = @id";
+  const stmt = db.prepare<{ id: string }, Room>(sql);
+  const room = stmt.get({ id });
+
+  if (!room) {
+    return c.json(
+      { message: "Room not found" },
+      404
+    );
+  }
+
+  return c.json({
+    message: `Room for ID: ${id}`,
+    data: room,
+  });
+});
+
 
 /* -----------------------------
    POST Create Room
